@@ -28,7 +28,7 @@ end
 
 local SaveManager = {}
 do
-	SaveManager.Folder = "LinoriaLibSettings"
+	SaveManager.Folder = "Khy's Hub"
 	SaveManager.Ignore = {}
 	SaveManager.Parser = {
 		Toggle = {
@@ -69,7 +69,7 @@ do
 			end,
 		},
 	}
-
+    
 	function SaveManager:CheckFolderTree()
 		pcall(function()
 			if not isfolder(self.Folder) then -- who tought that isfolder should error when the folder is not found 😭
@@ -94,7 +94,7 @@ do
 		if not name then return false, "no config file is selected" end
 		SaveManager:CheckFolderTree()
 
-		local fullPath = self.Folder .. "/settings/" .. name .. ".json"
+		local fullPath = self.Folder .. '/' .. name .. '.json'
 		local data = {
 			objects = {},
 		}
@@ -176,7 +176,7 @@ do
 			if not isfolder(str) then makefolder(str) end
 		end
 	end
-    
+
 	function SaveManager:RefreshConfigList()
 		SaveManager:CheckFolderTree()
 		local list = listfiles(self.Folder .. "/settings")
